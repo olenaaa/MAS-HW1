@@ -19,13 +19,23 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('signed in as: ' + user.email!),
-          MaterialButton(
+          SizedBox(
+            height: 15,
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple[200],
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30))),
+            child: const Text(
+              "Sign out",
+              style: TextStyle(color: Colors.black, fontSize: 14),
+            ),
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
-            color: Colors.deepPurple[200],
-            child: Text('sign out'),
-          )
+          ),
         ],
       )),
     );
