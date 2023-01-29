@@ -1,3 +1,5 @@
+import 'package:app2/read%20data/get_user_name.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,21 +13,63 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
 
+  // document IDs
+  List<String> docIDs = [];
+
+  // get docIDs
+  Future getDocID() async {
+    docIDs.clear();
+    await FirebaseFirestore.instance.collection('users').get().then(
+          (snapshot) => snapshot.docs.forEach((document) {
+            print(document.reference);
+            docIDs.add(document.reference.id);
+          }),
+        );
+  }
+
+  // @override
+  // void initState() {
+  //   getDocID();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(user.email!, style: TextStyle(fontSize: 16)),
+      ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('signed in as: ' + user.email!),
           SizedBox(
             height: 15,
           ),
+          Expanded(
+            child: FutureBuilder(
+              future: getDocID(),
+              builder: (context, snapshot) {
+                return ListView.builder(
+                  itemCount: docIDs.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ListTile(
+                        tileColor: Colors.grey[300],
+                        title: GetUserName(documentId: docIDs[index]),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurple[200],
-                elevation: 0,
+                elevation: 10,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30))),
             child: const Text(
@@ -35,6 +79,9 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
+          ),
+          SizedBox(
+            height: 30,
           ),
         ],
       )),
