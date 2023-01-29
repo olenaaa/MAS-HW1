@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.cyan[100],
         body: SafeArea(
           child: Center(
             child: SingleChildScrollView(
@@ -93,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     // Hello Again!
                     const Text(
-                      'Hello There!',
+                      'New User',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 36,
@@ -101,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     SizedBox(height: 10),
                     const Text(
-                      'Register below with your details:',
+                      'Please register below:',
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -251,7 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: Container(
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                            color: Colors.deepPurple,
+                            color: Colors.blue[800],
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Center(

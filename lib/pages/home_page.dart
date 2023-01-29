@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(user.email!, style: TextStyle(fontSize: 16)),
+        backgroundColor: Colors.blue[300],
       ),
       body: Center(
           child: Column(
@@ -56,8 +57,10 @@ class _HomePageState extends State<HomePage> {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ListTile(
-                        tileColor: Colors.grey[300],
+                        tileColor: Colors.cyan[100],
                         title: GetUserName(documentId: docIDs[index]),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
                       ),
                     );
                   },
@@ -65,10 +68,9 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple[200],
+                backgroundColor: Colors.blue[800],
                 elevation: 10,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30))),

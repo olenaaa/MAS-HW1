@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.cyan[100],
         body: SafeArea(
           child: Center(
             child: SingleChildScrollView(
@@ -43,14 +43,14 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.phone_android,
+                      Icons.account_box_outlined,
                       size: 100,
                     ),
                     SizedBox(height: 75),
 
                     // Hello Again!
                     const Text(
-                      'Hello Again!',
+                      'Mini Social Media',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 36,
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 10),
                     const Text(
-                      'Welcome back, you\'ve been missed!!',
+                      'Welcome! Please sign in:',
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
-                                context, 
+                                context,
                                 MaterialPageRoute(
                                   builder: (context) {
                                     return ForgotPasswordPage();
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Container(
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                            color: Colors.deepPurple,
+                            color: Colors.blue[800],
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Center(
@@ -191,7 +191,6 @@ class _LoginPageState extends State<LoginPage> {
                   ]),
             ),
           ),
-        )
-      );
+        ));
   }
 }
