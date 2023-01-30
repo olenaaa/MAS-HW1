@@ -1,4 +1,4 @@
-# app2: MAS HW 1
+# MAS HW 1
 
 ## Install Prerequisites 
 
